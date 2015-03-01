@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: 'E:\Programmes fichiers\wamp\www\Ecommerce\app/config/routing_dev.yml'
