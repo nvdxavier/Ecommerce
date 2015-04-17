@@ -21,10 +21,16 @@ class __TwigTemplate_870369b6be5e406a07d3b719145400dcd9f35ec49695d2d18a1a7dce8ce
     <div class=\"well\">
         <ul class=\"nav nav-list\">
             <li>
-                <a href=\"ajout-edit.php\">Produits</a>
+                <a href=\"";
+        // line 6
+        echo $this->env->getExtension('routing')->getPath("adminProduits");
+        echo "\">Produits</a>
             </li>
             <li>
-                <a href=\"ajout-edit.php\">Catégories produits</a>
+                <a href=\"";
+        // line 9
+        echo $this->env->getExtension('routing')->getPath("adminCategories");
+        echo "\">Catégories produits</a>
             </li>
         </ul>
     </div>
@@ -35,7 +41,10 @@ class __TwigTemplate_870369b6be5e406a07d3b719145400dcd9f35ec49695d2d18a1a7dce8ce
                 <a href=\"ajout-edit.php\">Clients</a>
             </li>
             <li>
-                <a href=\"ajout-edit.php\">Commandes</a>
+                <a href=\"";
+        // line 20
+        echo $this->env->getExtension('routing')->getPath("adminCommande");
+        echo "\">Commandes</a>
             </li>
         </ul>
     </div>
@@ -65,6 +74,6 @@ class __TwigTemplate_870369b6be5e406a07d3b719145400dcd9f35ec49695d2d18a1a7dce8ce
 
     public function getDebugInfo()
     {
-        return array (  48 => 28,  19 => 1,);
+        return array (  57 => 28,  46 => 20,  32 => 9,  26 => 6,  19 => 1,);
     }
 }

@@ -16,8 +16,7 @@ class PagesType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('contenu')
-        ;
+            ->add('contenu', 'textarea', array('attr' => array('class' => 'ckeditor')));
     }
     
     /**

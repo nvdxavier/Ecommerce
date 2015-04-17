@@ -72,8 +72,10 @@ class __TwigTemplate_479f05234286241a40acc28ff8782f036a5bd7c46fa6c255f2be94d4f2a
                         <div class=\"thumbnail\">
                             <img src=\"";
                 // line 23
-                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["produit"]) ? $context["produit"] : $this->getContext($context, "produit")), "image"), "path"), "html", null, true);
-                echo "\" alt=\"DevAndClick\" width=\"300\" height=\"150\">
+                echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute($this->getAttribute((isset($context["produit"]) ? $context["produit"] : $this->getContext($context, "produit")), "image"), "AssetPath")), "html", null, true);
+                echo "\" alt=\"";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["produit"]) ? $context["produit"] : $this->getContext($context, "produit")), "image"), "name"), "html", null, true);
+                echo "\" width=\"300\" height=\"150\">
                             <div class=\"caption\">
                                 <h4>";
                 // line 25
@@ -141,6 +143,6 @@ class __TwigTemplate_479f05234286241a40acc28ff8782f036a5bd7c46fa6c255f2be94d4f2a
 
     public function getDebugInfo()
     {
-        return array (  126 => 44,  122 => 42,  115 => 38,  112 => 37,  109 => 35,  100 => 31,  94 => 29,  92 => 28,  88 => 27,  84 => 26,  80 => 25,  75 => 23,  71 => 21,  67 => 20,  64 => 19,  62 => 18,  54 => 14,  48 => 12,  42 => 10,  39 => 9,  37 => 8,  31 => 4,  28 => 3,);
+        return array (  128 => 44,  124 => 42,  117 => 38,  114 => 37,  111 => 35,  102 => 31,  96 => 29,  94 => 28,  90 => 27,  86 => 26,  82 => 25,  75 => 23,  71 => 21,  67 => 20,  64 => 19,  62 => 18,  54 => 14,  48 => 12,  42 => 10,  39 => 9,  37 => 8,  31 => 4,  28 => 3,);
     }
 }

@@ -439,9 +439,155 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsController::rechercheTraitementAction',  '_route' => 'rechercheProduits',);
         }
 
-        // validationCommande
-        if (0 === strpos($pathinfo, '/api/banque') && preg_match('#^/api/banque/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'validationCommande')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CommandesController::validationCommandeAction',));
+        if (0 === strpos($pathinfo, '/a')) {
+            if (0 === strpos($pathinfo, '/admin')) {
+                if (0 === strpos($pathinfo, '/admin/produits')) {
+                    // adminProduits
+                    if (rtrim($pathinfo, '/') === '/admin/produits') {
+                        if (substr($pathinfo, -1) !== '/') {
+                            return $this->redirect($pathinfo.'/', 'adminProduits');
+                        }
+
+                        return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsAdminController::indexAction',  '_route' => 'adminProduits',);
+                    }
+
+                    // adminProduits_show
+                    if (preg_match('#^/admin/produits/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminProduits_show')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsAdminController::showAction',));
+                    }
+
+                    // adminProduits_new
+                    if ($pathinfo === '/admin/produits/new') {
+                        return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsAdminController::newAction',  '_route' => 'adminProduits_new',);
+                    }
+
+                    // adminProduits_create
+                    if ($pathinfo === '/admin/produits/create') {
+                        if ($this->context->getMethod() != 'POST') {
+                            $allow[] = 'POST';
+                            goto not_adminProduits_create;
+                        }
+
+                        return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsAdminController::createAction',  '_route' => 'adminProduits_create',);
+                    }
+                    not_adminProduits_create:
+
+                    // adminProduits_edit
+                    if (preg_match('#^/admin/produits/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminProduits_edit')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsAdminController::editAction',));
+                    }
+
+                    // adminProduits_update
+                    if (preg_match('#^/admin/produits/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                        if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                            $allow = array_merge($allow, array('POST', 'PUT'));
+                            goto not_adminProduits_update;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminProduits_update')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsAdminController::updateAction',));
+                    }
+                    not_adminProduits_update:
+
+                    // adminProduits_delete
+                    if (preg_match('#^/admin/produits/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                        if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                            $allow = array_merge($allow, array('POST', 'DELETE'));
+                            goto not_adminProduits_delete;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminProduits_delete')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\ProduitsAdminController::deleteAction',));
+                    }
+                    not_adminProduits_delete:
+
+                }
+
+                if (0 === strpos($pathinfo, '/admin/c')) {
+                    if (0 === strpos($pathinfo, '/admin/categories')) {
+                        // adminCategories
+                        if (rtrim($pathinfo, '/') === '/admin/categories') {
+                            if (substr($pathinfo, -1) !== '/') {
+                                return $this->redirect($pathinfo.'/', 'adminCategories');
+                            }
+
+                            return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CategoriesAdminController::indexAction',  '_route' => 'adminCategories',);
+                        }
+
+                        // adminCategories_show
+                        if (preg_match('#^/admin/categories/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminCategories_show')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CategoriesAdminController::showAction',));
+                        }
+
+                        // adminCategories_new
+                        if ($pathinfo === '/admin/categories/new') {
+                            return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CategoriesAdminController::newAction',  '_route' => 'adminCategories_new',);
+                        }
+
+                        // adminCategories_create
+                        if ($pathinfo === '/admin/categories/create') {
+                            if ($this->context->getMethod() != 'POST') {
+                                $allow[] = 'POST';
+                                goto not_adminCategories_create;
+                            }
+
+                            return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CategoriesAdminController::createAction',  '_route' => 'adminCategories_create',);
+                        }
+                        not_adminCategories_create:
+
+                        // adminCategories_edit
+                        if (preg_match('#^/admin/categories/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminCategories_edit')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CategoriesAdminController::editAction',));
+                        }
+
+                        // adminCategories_update
+                        if (preg_match('#^/admin/categories/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                            if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                                $allow = array_merge($allow, array('POST', 'PUT'));
+                                goto not_adminCategories_update;
+                            }
+
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminCategories_update')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CategoriesAdminController::updateAction',));
+                        }
+                        not_adminCategories_update:
+
+                        // adminCategories_delete
+                        if (preg_match('#^/admin/categories/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                            if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                                $allow = array_merge($allow, array('POST', 'DELETE'));
+                                goto not_adminCategories_delete;
+                            }
+
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminCategories_delete')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CategoriesAdminController::deleteAction',));
+                        }
+                        not_adminCategories_delete:
+
+                    }
+
+                    if (0 === strpos($pathinfo, '/admin/commandes')) {
+                        // adminCommande
+                        if (rtrim($pathinfo, '/') === '/admin/commandes') {
+                            if (substr($pathinfo, -1) !== '/') {
+                                return $this->redirect($pathinfo.'/', 'adminCommande');
+                            }
+
+                            return array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CommandesAdminController::commandesAction',  '_route' => 'adminCommande',);
+                        }
+
+                        // adminShowFacture
+                        if (0 === strpos($pathinfo, '/admin/commandes/facture') && preg_match('#^/admin/commandes/facture/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                            return $this->mergeDefaults(array_replace($matches, array('_route' => 'adminShowFacture')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CommandesAdminController::showFactureAction',));
+                        }
+
+                    }
+
+                }
+
+            }
+
+            // validationCommande
+            if (0 === strpos($pathinfo, '/api/banque') && preg_match('#^/api/banque/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'validationCommande')), array (  '_controller' => 'Ecommerce\\EcommerceBundle\\Controller\\CommandesController::validationCommandeAction',));
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

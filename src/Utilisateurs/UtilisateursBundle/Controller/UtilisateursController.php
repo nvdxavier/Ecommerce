@@ -25,20 +25,8 @@ class UtilisateursController extends Controller
             return $this->redirect($this->generateUrl('factures'));
         }
         
-        $html = $this->renderView('UtilisateursBundle:Default:layout/facturePDF.html.twig', array('facture' => $facture));
-        
-        $html2pdf = new \Html2Pdf_Html2Pdf('P', 'A4', 'fr');
-        $html2pdf->pdf->SetAuthor('NVDXAVIER');
-        $html2pdf->pdf->SetTitle('Facture ' . $facture->getReference());
-        $html2pdf->pdf->SetSubject('Facture NVDXAVIER');
-        $html2pdf->pdf->SetKeywords('facture,NVDXAVIER');
-        $html2pdf->pdf->SetDisplayMode('real');
-        $html2pdf->writeHTML($html);
-        $html2pdf->Output('Facture.pdf');
-        $response = new Response();
-        $response->headers->set('Content-type', 'application/pdf');
-        
-        return $response;
+        $this->container->get('setNewFacture')->facture($facture);
+
     }
     
     

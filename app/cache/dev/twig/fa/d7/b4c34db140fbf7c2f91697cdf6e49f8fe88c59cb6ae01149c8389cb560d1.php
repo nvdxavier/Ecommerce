@@ -74,7 +74,7 @@ class __TwigTemplate_fad7b4c34db140fbf7c2f91697cdf6e49f8fe88c59cb6ae01149c8389cb
                     <a class=\"brand\" href=\"";
         // line 24
         echo $this->env->getExtension('routing')->getPath("produits");
-        echo "\">DevAndClick</a>
+        echo "\">NVDXAVIER</a>
                     <div class=\"nav-collapse collapse\">
                         ";
         // line 26
@@ -152,7 +152,7 @@ class __TwigTemplate_fad7b4c34db140fbf7c2f91697cdf6e49f8fe88c59cb6ae01149c8389cb
     // line 5
     public function block_titre($context, array $blocks = array())
     {
-        echo "Ecommerce Fruits & légumes - By DevAndClick";
+        echo "Nvdxavier Fruits & légumes - By DevAndClick";
     }
 
     // line 6
@@ -192,6 +192,6 @@ class __TwigTemplate_fad7b4c34db140fbf7c2f91697cdf6e49f8fe88c59cb6ae01149c8389cb
 
     public function getDebugInfo()
     {
-        return array (  179 => 64,  174 => 31,  169 => 12,  164 => 7,  159 => 6,  153 => 5,  148 => 65,  146 => 64,  142 => 63,  138 => 62,  130 => 57,  121 => 51,  117 => 50,  102 => 40,  91 => 32,  89 => 31,  83 => 27,  81 => 26,  76 => 24,  61 => 13,  59 => 12,  55 => 11,  51 => 10,  47 => 9,  43 => 8,  35 => 6,  25 => 1,  126 => 44,  122 => 42,  115 => 38,  112 => 37,  109 => 45,  100 => 39,  94 => 29,  92 => 28,  88 => 27,  84 => 26,  80 => 25,  75 => 23,  71 => 21,  67 => 20,  64 => 19,  62 => 18,  54 => 14,  48 => 12,  42 => 10,  39 => 7,  37 => 8,  31 => 5,  28 => 3,);
+        return array (  179 => 64,  174 => 31,  169 => 12,  164 => 7,  159 => 6,  153 => 5,  148 => 65,  146 => 64,  142 => 63,  138 => 62,  130 => 57,  121 => 51,  117 => 50,  109 => 45,  102 => 40,  100 => 39,  91 => 32,  89 => 31,  83 => 27,  81 => 26,  76 => 24,  61 => 13,  59 => 12,  55 => 11,  51 => 10,  47 => 9,  43 => 8,  39 => 7,  35 => 6,  31 => 5,  25 => 1,);
     }
 }

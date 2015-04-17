@@ -2937,7 +2937,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54f491049ba77</argument>
+            <argument>552d84ff85ce0</argument>
           </service>
         </argument>
         <argument type="service">
@@ -3221,7 +3221,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54f491049ba77</argument>
+            <argument>552d84ff85ce0</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3915,6 +3915,9 @@
       </argument>
       <argument type="service" id="security.authentication.trust_resolver" on-invalid="null"/>
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
+    </service>
+    <service id="setnewfacture" class="Ecommerce\EcommerceBundle\Services\GetFacture">
+      <argument type="service" id="service_container"/>
     </service>
     <service id="setnewreference" class="Ecommerce\EcommerceBundle\Services\GetReference">
       <argument type="service" id="security.context"/>
